@@ -9,36 +9,37 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="md:p-6 bg-white border-b border-gray-200">
+                    <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
                     <form method="POST" action="{{route('admin.owners.update', ['owner' => $owner->id])}}">
                         @method('PUT')
                         @csrf
                         <div class="lg:w-1/2 md:w-2/3 mx-auto">
-                            <div class="p-2 w-1/2 mx-auto">
+                            <div class="p-2 md:w-1/2 mx-auto">
                                 <div class="relative">
                                 <label for="name" class="leading-7 text-sm text-gray-600">名前</label>
                                 <input type="text" id="name" name="name" value="{{$owner->name}}" required class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                                 </div>
                             </div>
-                            <div class="p-2 w-1/2 mx-auto">
+                            <div class="p-2 md:w-1/2 mx-auto">
                                 <div class="relative">
                                 <label for="email" class="leading-7 text-sm text-gray-600">メールアドレス</label>
                                 <input type="email" id="email" name="email" value="{{$owner->email}}" required class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                                 </div>
                             </div>
-                            <div class="p-2 w-1/2 mx-auto">
+                            <div class="p-2 md:w-1/2 mx-auto">
                                 <div class="relative">
                                 <label for="shopName" class="leading-7 text-sm text-gray-600">店名</label>
                                 <div id="shopName" name="shopName" class="w-full bg-gray-200 bg-opacity-50 rounded focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">{{$owner->shop->name}}</div>
                                 </div>
                             </div>
-                            <div class="p-2 w-1/2 mx-auto">
+                            <div class="p-2 md:w-1/2 mx-auto">
                                 <div class="relative">
                                 <label for="password" class="leading-7 text-sm text-gray-600">パスワード</label>
                                 <input type="password" id="password" name="password" required class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                                 </div>
                             </div>
-                            <div class="p-2 w-1/2 mx-auto">
+                            <div class="p-2 md:w-1/2 mx-auto">
                                 <div class="relative">
                                 <label for="password2" class="leading-7 text-sm text-gray-600">パスワード確認</label>
                                 <input type="password" id="password2" name="password2" required class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">

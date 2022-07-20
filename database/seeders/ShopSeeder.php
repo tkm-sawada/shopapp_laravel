@@ -24,7 +24,7 @@ class ShopSeeder extends Seeder
                 'is_selling' => true,
             ],
             [
-                'owner_id' => 2,
+                'owner_id' => 1,
                 'name' => 'ここに店名が入ります',
                 'information' => 'ここにお店の情報が入ります',
                 'filename' => 'sample2.jpg',

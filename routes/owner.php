@@ -8,11 +8,23 @@ use App\Http\Controllers\Owner\Auth\NewPasswordController;
 use App\Http\Controllers\Owner\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Owner\Auth\RegisteredUserController;
 use App\Http\Controllers\Owner\Auth\VerifyEmailController;
+use App\Http\Controllers\Owner\ShopController;
+use App\Http\Controllers\Owner\ImageController;
+use App\Http\Controllers\Owner\ProductController;
 use Illuminate\Support\Facades\Route;
+
+Route::resource('shops', ShopController::class)
+    ->middleware(['auth:owners'])->except(['show']);
+
+Route::resource('images', ImageController::class)
+    ->middleware(['auth:owners'])->except(['show']);
+
+Route::resource('products', ProductController::class)
+    ->middleware(['auth:owners'])->except(['show']);
 
 Route::get('/dashboard', function () {
     return view('owner.dashboard');
-})->middleware(['auth:owner'])->name('dashboard');
+})->middleware(['auth:owners'])->name('dashboard');
 
 Route::middleware('guest')->group(function () {
     Route::get('register', [RegisteredUserController::class, 'create'])
@@ -38,7 +50,7 @@ Route::middleware('guest')->group(function () {
                 ->name('password.update');
 });
 
-Route::middleware('auth:owner')->group(function () {
+Route::middleware('auth:owners')->group(function () {
     Route::get('verify-email', [EmailVerificationPromptController::class, '__invoke'])
                 ->name('verification.notice');
 
